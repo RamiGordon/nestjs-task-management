@@ -2,8 +2,9 @@ import { Injectable, Logger } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
+  healthCheck(): { status: string } {
     Logger.log('Hello World!');
-    return 'Hello World!';
+
+    return { status: 'ok' };
   }
 }
