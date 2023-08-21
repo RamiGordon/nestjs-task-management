@@ -45,6 +45,7 @@ export class TasksController {
 
   @Delete(':id')
   remove(@Param('id') id: string): void {
+    console.log('hello');
     return this.tasksService.remove(id);
   }
 }
