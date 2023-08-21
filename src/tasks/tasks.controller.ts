@@ -11,7 +11,7 @@ import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { Task } from './entities/task.entity';
-import { UpdateTaskStatusDto } from 'src/tasks/dto/update-task-status.dto';
+import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
 
 @ApiTags('Tasks')
 @Controller('tasks')
@@ -45,7 +45,6 @@ export class TasksController {
 
   @Delete(':id')
   remove(@Param('id') id: string): void {
-    console.log('hello');
     return this.tasksService.remove(id);
   }
 }
