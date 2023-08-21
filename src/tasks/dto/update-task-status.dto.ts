@@ -1,4 +1,4 @@
-import { TaskStatus } from 'src/tasks/entities/task.entity';
+import { TaskStatus } from '../entities/task.entity';
 import { IsEnum } from 'class-validator';
 
 export class UpdateTaskStatusDto {
