@@ -10,7 +10,8 @@ import {
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { Task, TaskStatus } from './entities/task.entity';
+import { Task } from './entities/task.entity';
+import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
 
 @ApiTags('Tasks')
 @Controller('tasks')
@@ -33,7 +34,12 @@ export class TasksController {
   }
 
   @Patch(':id/status')
-  updateStatus(@Param('id') id: string, @Body('status') status: TaskStatus) {
+  updateStatus(
+    @Param('id') id: string,
+    @Body() updateTaskStatusDto: UpdateTaskStatusDto,
+  ) {
+    const { status } = updateTaskStatusDto;
+
     return this.tasksService.updateStatus(id, status);
   }
 
